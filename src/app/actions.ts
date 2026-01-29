@@ -6,6 +6,7 @@ import { estimateCoolingLoad } from "@/ai/flows/estimate-cooling-load";
 import { provideEfficiencySuggestions } from "@/ai/flows/provide-efficiency-suggestions";
 import { recommendAcCapacity } from "@/ai/flows/recommend-ac-capacity";
 import { suggestOptimalAcPlacement } from "@/ai/flows/suggest-optimal-ac-placement";
+import { chat, type ChatInput } from "@/ai/flows/chat-flow";
 
 export type HvacDesignSummary = {
     roomOverview: {
@@ -88,6 +89,20 @@ export async function generateHvacDesign(values: HvacFormValues): Promise<HvacDe
     return { 
         // @ts-ignore
         error: `An error occurred while generating the HVAC design. Please check your inputs and try again. Details: ${errorMessage}` 
+    };
+  }
+}
+
+export async function chatWithAi(input: ChatInput): Promise<{ content: string; error?: string }> {
+  try {
+    const result = await chat(input);
+    return { content: result.content };
+  } catch (error) {
+    console.error("Error in chatWithAi:", error);
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
+    return { 
+        content: "",
+        error: `Sorry, I had trouble connecting to the AI. Please try again. Details: ${errorMessage}` 
     };
   }
 }

@@ -1,3 +1,10 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hvac-hero",
+      "description": "An abstract illustration of airflow and cooling technology.",
+      "imageUrl": "https://images.unsplash.com/photo-1612836639523-2ed74bc0209e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhaXIlMjBjb25kaXRpb25pbmd8ZW58MHx8fHwxNzY5NjY0NjA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "air conditioning"
+    }
+  ]
 }
